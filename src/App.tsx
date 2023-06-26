@@ -1,8 +1,12 @@
+import { Provider } from "react-redux";
 import { Player } from "./componentes/Player";
+import { store } from "./store";
 
 function App() {
   return (
-    <Player />
+    <Provider store={store}>
+      <Player />
+    </Provider>
   );
 }
 
