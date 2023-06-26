@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
-import { Player } from "./componentes/Player";
 import { store } from "./store";
+import { Player } from "./pages/Player";
 
 function App() {
   return (
