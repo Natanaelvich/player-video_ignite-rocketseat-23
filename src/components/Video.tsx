@@ -3,11 +3,11 @@ import { useAppSelector } from '../store'
 
 export function Video() {
   const lesson = useAppSelector((state) => {
-    const { currentModuleIndex, currentLessonINdex } = state.player
+    const { currentModuleIndex, currentLessonIndex } = state.player
 
     const currentLesson =
       state.player.course.modules[currentModuleIndex].lessons[
-        currentLessonINdex
+        currentLessonIndex
       ]
 
     return currentLesson

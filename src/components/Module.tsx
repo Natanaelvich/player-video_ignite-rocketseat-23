@@ -14,10 +14,10 @@ interface ModuleProps {
 export function Module({ moduleIndex, title, amountOfLessons }: ModuleProps) {
   const dispatch = useAppDispatch()
 
-  const { currentModuleIndex, currentLessonINdex } = useAppSelector((state) => {
-    const { currentModuleIndex, currentLessonINdex } = state.player
+  const { currentModuleIndex, currentLessonIndex } = useAppSelector((state) => {
+    const { currentModuleIndex, currentLessonIndex } = state.player
 
-    return { currentModuleIndex, currentLessonINdex }
+    return { currentModuleIndex, currentLessonIndex }
   })
 
   const lessons = useAppSelector((state) => {
@@ -44,7 +44,7 @@ export function Module({ moduleIndex, title, amountOfLessons }: ModuleProps) {
           {lessons.map((lesson, lessonIndex) => {
             const isCurrent =
               currentModuleIndex === moduleIndex &&
-              currentLessonINdex === lessonIndex
+              currentLessonIndex === lessonIndex
             return (
               <Lesson
                 key={lesson.id}
