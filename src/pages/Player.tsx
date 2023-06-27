@@ -10,7 +10,7 @@ import { leadCourse, useCurrentLesson } from '../store/slices/player'
 export function Player() {
   const dispatch = useAppDispatch()
 
-  const modules = useAppSelector((state) => state.player.course.modules)
+  const modules = useAppSelector((state) => state.player.course?.modules)
 
   const { currentLesson } = useCurrentLesson()
 
@@ -19,7 +19,7 @@ export function Player() {
   }, [dispatch])
 
   useEffect(() => {
-    document.title = `Assistindo: ${currentLesson.title}`
+    document.title = `Assistindo: ${currentLesson?.title}`
   }, [currentLesson])
 
   return (
@@ -40,7 +40,7 @@ export function Player() {
           </div>
 
           <aside className="absolute bottom-0 right-0 top-0 w-80 border-l divide-y-2 divide-zinc-900 border-zinc-800 bg-zinc-900 overflow-y-scroll scrollbar-thin scrollbar-track-zinc-950 scrollbar-thumb-zinc-800">
-            {modules.map((module, index) => {
+            {modules?.map((module, index) => {
               return (
                 <Module
                   key={module.id}
