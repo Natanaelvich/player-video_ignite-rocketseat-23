@@ -46,13 +46,13 @@ export const playerSlice = createSlice({
     next: (state) => {
       const nextLessonIndex = state.currentLessonIndex + 1
       const nextLesson =
-        state.course.modules[state.currentModuleIndex].lessons[nextLessonIndex]
+        state.course?.modules[state.currentModuleIndex].lessons[nextLessonIndex]
 
       if (nextLesson) {
         state.currentLessonIndex = nextLessonIndex
       } else {
         const nextModuleIndex = state.currentModuleIndex + 1
-        const nextModule = state.course.modules[nextModuleIndex]
+        const nextModule = state.course?.modules[nextModuleIndex]
 
         if (nextModule) {
           state.currentModuleIndex = nextModuleIndex
@@ -60,6 +60,16 @@ export const playerSlice = createSlice({
         }
       }
     },
+  },
+  extraReducers(builder) {
+    builder.addCase(leadCourse.pending, (state) => {
+      state.isLoading = true
+    })
+
+    builder.addCase(leadCourse.fulfilled, (state, action) => {
+      state.course = action.payload
+      state.isLoading = false
+    })
   },
 })
 
@@ -71,8 +81,8 @@ export const useCurrentLesson = () => {
   return useAppSelector((state) => {
     const { currentModuleIndex, currentLessonIndex } = state.player
 
-    const currentModule = state.player.course.modules[currentModuleIndex]
-    const currentLesson = currentModule.lessons[currentLessonIndex]
+    const currentModule = state.player.course?.modules[currentModuleIndex]
+    const currentLesson = currentModule?.lessons[currentLessonIndex]
 
     return { currentModule, currentLesson }
   })
