@@ -4,6 +4,7 @@
 This is a simple video player that allows you to play a video from a URL or from a local file. made with React and Typescript.
 
 ![image](https://github.com/Natanaelvich/player-video_ignite-rocketseat-23-/assets/52014318/d6c61103-3548-4359-b427-bc3e15c2184a)
+![image](https://github.com/Natanaelvich/player-video_ignite-rocketseat-23/assets/52014318/a63162cd-351d-46a8-9c3c-087d4d2a55d5)
 
 ### How to run
 1. Clone this repository
